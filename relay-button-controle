@@ -1,0 +1,33 @@
+// constants won't change. They're used here to set pin numbers:
+const int buttonPin = 2;     // The number of the pushbutton pin
+const int rePin = 7;         // The number of the relay pin
+const int sDelay = 10;        // Waits for .01 ms
+const int mDelay = 100;        // Waits for .10 ms
+const int lDelay = 1000;       // Waits for 1 sec
+
+// variables will change:
+int buttonState = 0;         // variable for reading the pushbutton status
+
+void setup() {
+  // initialize the pushbutton pin as an input:
+  pinMode(buttonPin, INPUT);
+  // initialize the relay pin as an output:
+  pinMode(rePin, OUTPUT);
+}
+
+void loop() {
+  // read the state of the pushbutton value:
+  buttonState = digitalRead(buttonPin);
+
+  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
+  if (buttonState == HIGH) {
+    // turn relay on:
+    digitalWrite(rePin, HIGH);
+    delay(mDelay);
+    
+  } else {
+    // turn relay off:
+    digitalWrite(rePin, LOW);
+    delay(mDelay);
+  }
+}
